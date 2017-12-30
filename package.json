@@ -10,23 +10,23 @@
   "keywords": [
     "nodebb",
     "plugin",
-    "paypal",
+    "stripe",
     "subscriptions",
     "monetization"
   ],
   "author": {
-    "name": "psychobunny",
-    "email": "psycho.bunny@hotmail.com"
+    "name": "Ed James",
+    "email": "ed@sullivation.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/psychobunny/nodebb-plugin-paypal-subscriptions/issues"
+    "url": "https://github.com/edthefifth/nodebb-plugin-paypal-subscriptions/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
     "compatibility": "^1.0.0"
   },
   "dependencies": {
-    "paypal-recurring": "^1.1.0"
+    "stripe": "5.4.0"
   }
 }

@@ -1,6 +1,6 @@
 {
-	"id": "nodebb-plugin-paypal-subscriptions",
-	"url": "https://github.com/NodeBB/nodebb-plugin-paypal-subscriptions",
+	"id": "nodebb-plugin-stripe-subscriptions",
+	"url": "https://github.com/edthefifth/nodebb-plugin-stripe-subscriptions",
 	"library": "./library.js",
 	"hooks": [
 		{

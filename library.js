@@ -1,7 +1,7 @@
 "use strict";
 
 var controllers = require('./lib/controllers'),
-	paypal = require('./lib/paypal'),
+	stripe = require('./lib/stripe'),
 	nconf = module.parent.require('nconf'),
 	winston = module.parent.require('winston'),
 
@@ -12,39 +12,39 @@ plugin.init = function(params, callback) {
 		hostMiddleware = params.middleware,
 		hostControllers = params.controllers;
 
-	paypal.configure();
+	stripe.configure();
 
-	router.get('/admin/plugins/paypal-subscriptions', hostMiddleware.admin.buildHeader, controllers.renderAdminPage);
-	router.get('/api/admin/plugins/paypal-subscriptions', controllers.renderAdminPage);
+	router.get('/admin/plugins/stripe-subscriptions', hostMiddleware.admin.buildHeader, controllers.renderAdminPage);
+	router.get('/api/admin/plugins/stripe-subscriptions', controllers.renderAdminPage);
 
-	router.get('/subscribe', hostMiddleware.buildHeader, paypal.subscribe);
-	router.get('/api/subscribe', paypal.subscribe);
+	router.get('/subscribe', hostMiddleware.buildHeader, stripe.subscribe);
+	router.get('/api/subscribe', stripe.subscribe);
 
-	router.post('/subscribe', paypal.onSubscribe);
+	router.post('/subscribe', stripe.onSubscribe);
 
-	router.get('/paypal-subscriptions/success', paypal.onSuccess);
+	router.get('/stripe-subscriptions/success', stripe.onSuccess);
 
-	router.post('/paypal-subscriptions/cancel-subscription', paypal.cancelSubscription);
+	router.post('/stripe-subscriptions/cancel-subscription', stripe.cancelSubscription);
 
 	callback();
 };
 
 plugin.addAdminNavigation = function(header, callback) {
 	header.plugins.push({
-		route: '/plugins/paypal-subscriptions',
-		icon: 'fa-paypal',
-		name: 'Paypal Subscriptions'
+		route: '/plugins/stripe-subscriptions',
+		icon: 'fa-stripe',
+		name: 'Stripe Subscriptions'
 	});
 
 	callback(null, header);
 };
 
 plugin.addSubscriptionSettings = function(data, callback) {
-	paypal.isSubscribed(data.uid, function(err, isSubscribed) {
+	stripe.isSubscribed(data.uid, function(err, isSubscribed) {
 		if (isSubscribed) {
 			data.customSettings.push({
 				title: 'Forum Subscription',
-				content: '<button class="btn btn-danger" id="btn-cancel-subscription">Cancel Subscription</button><form id="cancel-subscription" method="POST" action="/paypal-subscriptions/cancel-subscription"></form>'
+				content: '<button class="btn btn-danger" id="btn-cancel-subscription">Cancel Subscription</button><form id="cancel-subscription" method="POST" action="/stripe-subscriptions/cancel-subscription"></form>'
 			});
 		}
 

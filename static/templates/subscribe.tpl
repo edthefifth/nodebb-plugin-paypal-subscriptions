@@ -12,15 +12,48 @@
 <div class="row">
 	<div class="col-sm-12 col-md-6">
 		<div class="well">
-			<form method="POST">
-				<select name="period" class="form-control">
-					<!-- IF monthly --><option value="Month">Monthly - ${monthly}</option><!-- ENDIF monthly -->
-					<!-- IF annually --><option value="Annual">Annually - ${annually}</option><!-- ENDIF annually -->
-				</select>
+			<form method="POST" id="stripePOSTForm">
+				<input name="email" class="form-control" placeholder="your_name@example.com" required="true"> 
+                                <input type="hidden" value="" name="token" id="stripeToken">
 				<br /><br />
 
-				<button type="submit" class="btn btn-lg btn-success">Subscribe</button>
 			</form>
+                             
+                              
+                        <script src="https://checkout.stripe.com/checkout.js"></script>
+
+                        <button id="customButton">Pay</button>
+
+                        <script>
+                        var handler = StripeCheckout.configure({
+                          key: '${publish_key}',
+                          image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+                          locale: 'auto',
+                          token: function(token) {
+                            // You can access the token ID with `token.id`.
+                            // Get the token ID to your server-side code for use.
+                            document.getElementById('stripeToken').value = token.id;
+                            document.getElementById('stripePOSTForm').submit();
+                          }
+                        });
+
+                        document.getElementById('customButton').addEventListener('click', function(e) {
+                          // Open Checkout with further options:
+                          handler.open({
+                            name: '${company_name}',
+                            description: 'Insider Subscription',
+                            zipCode: true,
+                            billingAddress: true,
+                            amount: (${monthly}*100)
+                          });
+                          e.preventDefault();
+                        });
+
+                        // Close Checkout on page navigation:
+                        window.addEventListener('popstate', function() {
+                          handler.close();
+                        });
+                        </script>
 		</div>
 	</div>
 </div>
