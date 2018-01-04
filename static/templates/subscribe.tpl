@@ -21,12 +21,17 @@
                              
                               
                         <script src="https://checkout.stripe.com/checkout.js"></script>
+                        
+                        <h1>${monthly}/month Plan</h1>
+                        <h5>Sign up for unlimited access to all <b>Members Only</b> forums</h5>
+                        <h5>Get early access to all new content we create</h5>
+                        <h5>Includes an all-access pass to communicate with our staff of writers</h5>
 
-                        <button id="customButton">Pay</button>
+                        <button id="customButton" class="btn btn-primary">Sign Up Now!</button>
 
                         <script>
                         var handler = StripeCheckout.configure({
-                          key: '${publish_key}',
+                          key: '{publish_key}',
                           image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
                           locale: 'auto',
                           token: function(token) {
@@ -40,11 +45,11 @@
                         document.getElementById('customButton').addEventListener('click', function(e) {
                           // Open Checkout with further options:
                           handler.open({
-                            name: '${company_name}',
+                            name: '{company_name}',
                             description: 'Insider Subscription',
                             zipCode: true,
                             billingAddress: true,
-                            amount: (${monthly}*100)
+                            amount: ({amount})
                           });
                           e.preventDefault();
                         });
