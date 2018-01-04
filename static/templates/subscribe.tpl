@@ -22,12 +22,12 @@
                               
                         <script src="https://checkout.stripe.com/checkout.js"></script>
                         
-                        <h1>${monthly}/month Plan</h1>
+                        <h1>${monthly}/Month Plan</h1>
                         <h5>Sign up for unlimited access to all <b>Members Only</b> forums</h5>
                         <h5>Get early access to all new content we create</h5>
                         <h5>Includes an all-access pass to communicate with our staff of writers</h5>
 
-                        <button id="customButton" class="btn btn-primary">Sign Up Now!</button>
+                        <button id="customButton" class="btn btn-primary">Join</button>
 
                         <script>
                         var handler = StripeCheckout.configure({
