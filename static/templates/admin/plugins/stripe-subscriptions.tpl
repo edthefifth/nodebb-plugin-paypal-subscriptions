@@ -3,11 +3,11 @@
 		<div class="col-sm-2 col-xs-12 settings-header">Stripe API Connection</div>
 		<div class="col-sm-10 col-xs-12">
 			<p class="lead">
-				Visit <a href="https://developer.paypal.com">Paypal Developers</a> to create a new <strong>SOAP/NVP</strong> application. For testing purposes, use the credentials found there under <strong>Sandbox -> Accounts -> API Credentials</strong> instead.
+				Visit <a href="https://stripe.com">Stripe</a> to set up a new account.
 			</p>
 			<div class="form-group">
                                 <label for="api_key">API Key</label>
-				<input type="text" id="api_key" name="api_key" title="API Key" class="form-control" placeholder="sk_XXXXXXX">
+				<input type="password" id="api_key" name="api_key" title="API Key" class="form-control" placeholder="sk_XXXXXXX">
                                 <label for="api_key">Publishable Key</label>
 				<input type="text" id="publish_key" name="publish_key" title="Publishable Key" class="form-control" placeholder="pk_XXXXXXX">
 			</div>
