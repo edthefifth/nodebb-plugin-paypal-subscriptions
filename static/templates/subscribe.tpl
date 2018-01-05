@@ -10,7 +10,7 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-12 col-md-6 col-md-offset-3">
 		<div class="well">
 			<form method="POST" id="stripePOSTForm">
 				<input type="hidden" name="email" class="form-control" value="{email}" required="true"> 
@@ -27,7 +27,7 @@
                         <h5>Get early access to all new content we create</h5>
                         <h5>Includes an all-access pass to communicate with our staff of writers</h5>
 
-                        <button id="customButton" class="btn btn-primary">Join</button>
+                        <button id="customButton" class="btn btn-primary btn-block">Join</button>
 
                         <script>
                         var handler = StripeCheckout.configure({
