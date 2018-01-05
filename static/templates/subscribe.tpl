@@ -47,6 +47,7 @@
                           handler.open({
                             name: '{company_name}',
                             description: 'Insider Subscription',
+                            email:"{email}"
                             zipCode: true,
                             billingAddress: true,
                             amount: ({amount})
