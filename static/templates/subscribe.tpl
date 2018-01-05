@@ -13,7 +13,7 @@
 	<div class="col-sm-12 col-md-6">
 		<div class="well">
 			<form method="POST" id="stripePOSTForm">
-				<input name="email" class="form-control" placeholder="your_name@example.com" required="true"> 
+				<input type="hidden" name="email" class="form-control" value="{email}" required="true"> 
                                 <input type="hidden" value="" name="token" id="stripeToken">
 				<br /><br />
 
