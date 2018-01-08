@@ -52,6 +52,11 @@ plugin.addSubscriptionSettings = function(data, callback) {
 	});
 };
 
+plugin.whitelistSubscriptionId= function (hookData, callback) {
+    hookData.whitelist.push('stripe-subscriptions:sid');
+    callback(null, hookData);
+};
+
 plugin.redirectToSubscribe = function(data, callback) {
 	if (!data.req.uid || (!data.req.path.match('/topic') && !data.req.path.match('/category'))) {
 		return callback(false, data);
