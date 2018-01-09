@@ -29,34 +29,36 @@
                         <button id="customButton" class="btn btn-primary btn-block">Join Now!</button>
 
                         <script>
-                        var handler = StripeCheckout.configure({
-                          key: '{publish_key}',
-                          image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-                          locale: 'auto',
-                          token: function(token) {
-                            // You can access the token ID with `token.id`.
-                            // Get the token ID to your server-side code for use.
-                            document.getElementById('stripeToken').value = token.id;
-                            document.getElementById('stripePOSTForm').submit();
-                          }
-                        });
+                        $(function(){    
+                            var handler = StripeCheckout.configure({
+                              key: '{publish_key}',
+                              image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+                              locale: 'auto',
+                              token: function(token) {
+                                // You can access the token ID with `token.id`.
+                                // Get the token ID to your server-side code for use.
+                                document.getElementById('stripeToken').value = token.id;
+                                document.getElementById('stripePOSTForm').submit();
+                              }
+                            });
 
-                        document.getElementById('customButton').addEventListener('click', function(e) {
-                          // Open Checkout with further options:
-                          handler.open({
-                            name: '{company_name}',
-                            description: '{name} Subscription',
-                            email:"{email}",
-                            zipCode: true,
-                            billingAddress: true,
-                            amount: ({amount})
-                          });
-                          e.preventDefault();
-                        });
+                            document.getElementById('customButton').addEventListener('click', function(e) {
+                              // Open Checkout with further options:
+                              handler.open({
+                                name: '{company_name}',
+                                description: '{name} Subscription',
+                                email:"{email}",
+                                zipCode: true,
+                                billingAddress: true,
+                                amount: ({amount})
+                              });
+                              e.preventDefault();
+                            });
 
-                        // Close Checkout on page navigation:
-                        window.addEventListener('popstate', function() {
-                          handler.close();
+                            // Close Checkout on page navigation:
+                            window.addEventListener('popstate', function() {
+                              handler.close();
+                            });
                         });
                         </script>
                         
