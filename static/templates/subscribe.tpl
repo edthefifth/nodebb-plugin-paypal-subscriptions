@@ -15,19 +15,18 @@
 			<form method="POST" id="stripePOSTForm">
 				<input type="hidden" name="email" class="form-control" value="{email}" required="true"> 
                                 <input type="hidden" value="" name="token" id="stripeToken">
-				<br /><br />
 
 			</form>
                              
                               
                         <script src="https://checkout.stripe.com/checkout.js"></script>
-                        
-                        <h1>${monthly}/Month Plan</h1>
-                        <h5>Sign up for unlimited access to all <b>Members Only</b> forums</h5>
-                        <h5>Get early access to all new content we create</h5>
-                        <h5>Includes an all-access pass to communicate with our staff of writers</h5>
+                        <h1 style="text-transform:capitalize">Become {precursor} {name}</h1>
+                        <h2>${monthly}/Month Plan</h2>
+                        <p>Sign up for unlimited access to all <b>{name}</b> forums.<br/>
+                        Get early access to all new content we create.<br/>
+                        Includes an all-access pass to communicate with our staff of writers.</p>
 
-                        <button id="customButton" class="btn btn-primary btn-block">Join</button>
+                        <button id="customButton" class="btn btn-primary btn-block">Sign Up Now!</button>
 
                         <script>
                         var handler = StripeCheckout.configure({
@@ -46,7 +45,7 @@
                           // Open Checkout with further options:
                           handler.open({
                             name: '{company_name}',
-                            description: 'Insider Subscription',
+                            description: '{name} Subscription',
                             email:"{email}",
                             zipCode: true,
                             billingAddress: true,
@@ -60,6 +59,7 @@
                           handler.close();
                         });
                         </script>
+                        
 		</div>
 	</div>
 </div>

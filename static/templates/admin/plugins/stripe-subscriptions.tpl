@@ -17,6 +17,10 @@
 	<div class="row">
 		<div class="col-sm-2 col-xs-12 settings-header">Subscription Data</div>
 		<div class="col-sm-10 col-xs-12">
+                        <div class="form-group">
+				<label for="name">Membership Name</label>
+				<input type="text" id="name" name="name" title="Membership Name" class="form-control" placeholder="Insider">
+			</div>
 			<div class="form-group">
 				<label for="monthly">Monthly Cost($)</label>
 				<input type="text" id="monthly" name="monthly" title="Monthly Cost" class="form-control" placeholder="9.99">
