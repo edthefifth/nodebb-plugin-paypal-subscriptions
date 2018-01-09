@@ -22,6 +22,7 @@
                         <script src="https://checkout.stripe.com/checkout.js"></script>
                         <h1 style="text-transform:capitalize">Become {precursor} {name}</h1>
                         <h2>${monthly}/Month Plan</h2>
+                        <p class="text-danger">{tax_text}</p>
                         <p>Sign up for unlimited access to all <b>{name}</b> forums.<br/>
                         Get early access to all new content we create.<br/>
                         Includes an all-access pass to communicate with our staff of writers.</p>
