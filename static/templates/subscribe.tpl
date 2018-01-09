@@ -30,7 +30,7 @@
                         <button id="customButton" class="btn btn-primary btn-block">Join Now!</button>
 
                         <script>
-                        $(document).ready(function(){    
+                        window.onload = function(){    
                             var handler = StripeCheckout.configure({
                               key: '{publish_key}',
                               image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
@@ -60,7 +60,7 @@
                             window.addEventListener('popstate', function() {
                               handler.close();
                             });
-                        });
+                        };
                         </script>
                         
 		</div>
