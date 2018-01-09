@@ -51,9 +51,9 @@ plugin.addNavigation = function(items,callback){
             else if (!isSubscribed) {
                 items.push({
                     route    : "/subscribe",
-                    title    : "Upgrade for Premium Access",
+                    title    : "Get Premium Access",
                     enabled  : true,
-                    iconClass: "fa-lock",
+                    iconClass: "fa-usd",
                     textClass: "visible-xs-inline",
                     text     : "Upgrade"
                 });
@@ -71,7 +71,7 @@ plugin.userProfileLinks = function (links, next) {
 			id: 'membersonly',
 			public: true,
 			route: '/subscribe',
-			icon: 'fa-lock',
+			icon: 'fa-usd',
 			name: 'Upgrade to Premium'
 		});
 
@@ -86,6 +86,13 @@ plugin.addSubscriptionSettings = function(data, callback) {
 				content: '<button class="btn btn-danger" id="btn-cancel-subscription">Cancel Subscription</button><form id="cancel-subscription" method="POST" action="/stripe-subscriptions/cancel-subscription"></form>'
 			});
 		}
+                else
+                {
+                    data.customSettings.push({
+				title: 'Forum Subscription',
+				content: '<a href="/subscribe" class="btn btn-success" id="btn-buy-subscription">Buy Subscription</a>'
+			});
+                }    
 
 		callback(null, data);
 	});

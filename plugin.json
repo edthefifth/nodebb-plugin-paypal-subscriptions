@@ -22,7 +22,7 @@
 			"hook": "filter:navigation.available", "method": "addNavigation"
 		},
                 { 
-                        "hook": "filter:user.profileLinks",  "method": "userProfileLinks" 
+                        "hook": "filter:user.profileMenu",  "method": "userProfileLinks" 
                 }
 	],
 	"staticDirs": {
