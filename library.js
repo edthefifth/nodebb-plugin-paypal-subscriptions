@@ -42,7 +42,13 @@ plugin.addAdminNavigation = function(header, callback) {
 plugin.addNavigation = function(items,callback){
     
     stripe.isSubscribed(items.uid, function(err, isSubscribed) {
-            if (!isSubscribed) {
+        
+            if(err)
+            {
+                winston.warn('[stripe] addNavigation Error: '+err);
+                callback(err,items);
+            }    
+            else if (!isSubscribed) {
                 items.push({
                     route    : "/subscribe",
                     title    : "Upgrade for Premium Access",
@@ -51,8 +57,9 @@ plugin.addNavigation = function(items,callback){
                     textClass: "visible-xs-inline",
                     text     : "Upgrade"
                 });
+                callback(null,items);
             }
-            callback(null,header);
+            
     });
     
     
