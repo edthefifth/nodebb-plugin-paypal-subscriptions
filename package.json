@@ -1,11 +1,11 @@
 {
   "name": "nodebb-plugin-stripe-subscriptions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Monetize your forum with paid subscription-based access to certain categories",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobunny/nodebb-plugin-stripe-subscriptions"
+    "url": "https://github.com/edthefifth/nodebb-plugin-stripe-subscriptions"
   },
   "keywords": [
     "nodebb",

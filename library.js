@@ -86,7 +86,7 @@ plugin.addSubscriptionSettings = function(data, callback) {
 	});
 };
 
-plugin.whitelistSubscriptionId= function (hookData, callback) {
+plugin.whitelistSubscriptionId = function (hookData, callback) {
     hookData.whitelist.push('stripe-subscriptions:sid');
     callback(null, hookData);
 };
