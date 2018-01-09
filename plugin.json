@@ -17,6 +17,9 @@
 		},
                 {
 			"hook": "filter:user.whitelistFields", "method": "whitelistSubscriptionId"
+		},
+                {
+			"hook": "filter:navigation.available", "method": "addNavigation"
 		}
 	],
 	"staticDirs": {

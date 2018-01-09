@@ -39,6 +39,25 @@ plugin.addAdminNavigation = function(header, callback) {
 	callback(null, header);
 };
 
+plugin.addNavigation = function(items,callback){
+    
+    stripe.isSubscribed(items.uid, function(err, isSubscribed) {
+            if (!isSubscribed) {
+                items.push({
+                    route    : "/subscribe",
+                    title    : "Upgrade for Premium Access",
+                    enabled  : true,
+                    iconClass: "fa-lock",
+                    textClass: "visible-xs-inline",
+                    text     : "Upgrade"
+                });
+            }
+            callback(null,header);
+    });
+    
+    
+};
+
 plugin.addSubscriptionSettings = function(data, callback) {
 	stripe.isSubscribed(data.uid, function(err, isSubscribed) {
 		if (isSubscribed) {
