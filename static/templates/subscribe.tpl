@@ -26,7 +26,7 @@
                         Get early access to all new content we create.<br/>
                         Includes an all-access pass to communicate with our staff of writers.</p>
 
-                        <button id="customButton" class="btn btn-primary btn-block">Sign Up Now!</button>
+                        <button id="customButton" class="btn btn-primary btn-block">Join Now!</button>
 
                         <script>
                         var handler = StripeCheckout.configure({

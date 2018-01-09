@@ -65,18 +65,6 @@ plugin.addNavigation = function(items,callback){
     
 };
 
-plugin.userProfileLinks = function (links, next) {
-
-		links.push({
-			id: 'membersonly',
-			public: true,
-			route: '/subscribe',
-			icon: 'fa-usd',
-			name: 'Upgrade to Premium'
-		});
-
-		next(null, links);
-};
 
 plugin.addSubscriptionSettings = function(data, callback) {
 	stripe.isSubscribed(data.uid, function(err, isSubscribed) {
