@@ -29,8 +29,8 @@
 
                         <button id="customButton" class="btn btn-primary btn-block">Join Now!</button>
 
-                        <script>
-                        window.onload = function(){    
+                        <script type='text/javascript'>
+                        $(document).ready(function(){   
                             var handler = StripeCheckout.configure({
                               key: '{publish_key}',
                               image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
